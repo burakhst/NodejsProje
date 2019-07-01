@@ -1,0 +1,105 @@
+<style>
+    th {
+        margin: 10px;
+        padding: 10px;
+        float: right;
+    }
+
+    #inpt {
+        height: 50px;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid rgb(219, 209, 209); 
+        box-shadow: none;
+        font-size: 20px;
+        color:rgb(75, 65, 65);
+    }
+    #inpt:focus{
+        color:rgb(0, 109, 24);
+        border: 2px solid rgba(105, 184, 129, 0.37)
+    }
+    #inpt::placeholder{
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+    .Baslik {
+        font-size: 30px;
+        color: rgb(91, 89, 97);
+        padding: 0px 0px 10px;
+        text-align: center;
+    }
+
+    .uye_giris {
+        width: 400px;
+        float: left;
+        margin: 5px;
+        padding: 10px 25px 25px;
+        background: rgba(226, 231, 224, 0.2);
+        border: 1px solid rgba(209, 209, 209, 0.555);
+        border-radius: 10px;
+        box-shadow: 3px 3px 4px rgb(121, 121, 121);
+
+    }
+
+    .uye_kayit {
+        width: 400px;
+        float: left;
+        margin: 5px;
+        margin-left: 50px;
+        padding: 10px 25px 25px;
+        background: rgba(226, 231, 224, 0.2);
+        border: 1px solid rgb(209, 209, 209);
+        border-radius: 10px;
+        box-shadow: 3px 3px 4px rgb(121, 121, 121);
+    }
+    #btn{
+        width: 100px;
+        float: right;
+        background: rgb(8, 136, 8);
+    }
+    #btn:hover{
+        width: 100px;
+        float: right;
+        background: rgb(0, 114, 0);
+    }
+</style>
+<%- include('./partials/header')%>
+<div class="container" style="width: auto; display: table; vertical-align: center; margin: 25px auto;">
+    <div class="row">
+        <div class="uye_giris">
+            <h1 class="Baslik">Üye Giriş</h1>
+            <hr style="width:100%; background:rgb(167, 147, 147); margin: 0px auto 20px;">
+            <label style=" font-family: sans-serif;font-size: 20px;"><%= error %></label>
+            
+             
+            <form action="/uyeGiris_Kayit" method="POST">
+                <input class="input" id="inpt" type="text" name="kGiris" placeholder="Kullanıcı Adı" required>
+
+                <td><input class="input" id="inpt" type="password" name="kSifre" placeholder="Şifre" required>
+
+                    <button id="btn"  type="submit" class="button is-link">Giriş</button>
+            </form>
+        </div>
+
+        <div class="uye_kayit">
+            <h1 class="Baslik">Kayıt Ol</h1>
+            <hr style="width:100%; background:rgb(167, 147, 147); margin: 0px auto 20px;">
+            <label style=" font-family: sans-serif;font-size: 20px;"><%= bilgi %></label>
+            <form action="/uyeGirisKayit" method="POST">
+
+
+                <input class="input" id="inpt" type="text" name="uAdi" placeholder="Ad" required>
+                <input class="input" id="inpt" type="text" name="uSoyadi" placeholder="Soyad" required>
+                <input class="input" id="inpt" type="text" name="ukAdi" placeholder="Kullanıcı Adı" required>
+                <input class="input" id="inpt" type="password" name="uSifre" placeholder="Şifre" required>
+                <input class="input" id="inpt" type="text" name="uMail" placeholder="E-mail" required>
+                <input class="input" id="inpt" type="text" name="uGuvenlik" placeholder="Şifre Sıfırlama Gizli Sözcüğün" required>
+                <a href="/sifreYenile"  style="margin: 5px;">Şifremi Unuttum</a>
+                <button id="btn"  type="submit" class="button is-link">Kayıt Ol</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

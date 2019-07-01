@@ -1,0 +1,31 @@
+<%- include('./partials/uheader')%>
+<style>
+#inpt {
+    height: 50px;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid rgb(219, 209, 209); 
+        box-shadow: none;
+        font-size: 20px;
+        color:rgb(75, 65, 65);
+}
+</style>
+<div class="container" style="width: auto; display: table; vertical-align: center; margin: 25px auto;">
+    <div class="row">
+        <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/sifremiDegistir" method="POST">
+                <label style="font-size:25px; font-family:sans-serif; padding-left: 150px;">Şifremi Değiştir?</label>
+                    <input class="input" id="inpt" type="text" name="sAK" required placeholder="Kullanıcı Adı" value="<%= ad %>" READONLY>
+                    <input class="input" id="inpt" type="password" name="sGK" required placeholder="Eski Şifre">
+                    <input class="input" id="inpt" type="password" name="syK" required placeholder="Yeni Şifre">
+                
+                <input class="button is-success" type="submit" value="İleri" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    
+    </div>
+</div>

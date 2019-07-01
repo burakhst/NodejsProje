@@ -1,0 +1,17 @@
+<%- include('./partials/header')%>
+<div class="container" style="width: auto; vertical-align:center; display:table;">
+    <div class="row">
+
+        <div>
+            <div class="baslik"><% veri[0].forEach(function(kayıt) { %>
+                <h1 style="font-size: 25px; padding: 10px; text-align: center;"><%= kayıt.baslikAdi %></h1>
+                <% }); %>
+            </div>
+            <% veri[1].forEach(function(kayıt) { %>
+            <div style="width: 550px; padding: 10px; margin:10px; border: 1px solid teal; text-align: center;">
+                <%= kayıt.icerikAdi %></div>
+            <% }); %>
+        </div>
+
+    </div>
+</div>

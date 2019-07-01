@@ -1,0 +1,127 @@
+<%- include('adminPanel')%>
+<div style="margin:0px 0px 100px">
+    <div>
+        <iframe src="/4YilTabanPuan" style="width:100%; height:500px; "> </iframe>
+    </div>
+
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/4YilBolumEklendi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">Bölüm Ekle:</label>
+                <h1>Bölüm Adı:</h1>
+                <input class="input" type="text" name="dbAdi" required
+                    placeholder="DGS Acil Yardım ve Afet Yönetimi Bölümü Taban Puanları">
+                <input class="button is-primary" type="submit" value="Kayıt Ekle" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/4YilPuanlarEklendi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">4 Yıllık Üniversite Ekle:</label>
+                <br>
+                <label style="font-size:15px; font-family:sans-serif">Üniversite Adı:</label>
+                <input class="input" type="text" name="duniAdi" required placeholder="İstanbul Medipol Üniversitesi">
+                <label style="font-size:15px; font-family:sans-serif">Bölüm Adı:</label>
+                <input class="input" type="text" name="duniB" required placeholder="Bilgisayar Bilimleri">
+                <label style="font-size:15px; font-family:sans-serif">Öğr.Şekli:</label>
+                <input class="input" type="text" name="duniS" required placeholder="Mühendislik Fakültesi">
+                <label style="font-size:15px; font-family:sans-serif">Puan Türü:</label>
+                <input class="input" type="text" name="duniP" required placeholder="SAY-SÖZ">
+                <label style="font-size:15px; font-family:sans-serif">Kontenjan:</label>
+                <input class="input" type="text" name="duniK" required placeholder="0">
+                <label style="font-size:15px; font-family:sans-serif">Taban Puan:</label>
+                <input class="input" type="text" name="duniTaban" required placeholder="315.558">
+                <label style="font-size:15px; font-family:sans-serif">Başarı Sıralaması:</label>
+                <input class="input" type="text" name="duniSiralama" required placeholder="429.385">
+                <label>Hangi Bölüme Eklensin?</label>
+                <select class="input" name="dbolumS">
+                    <% veri[0].forEach(function(kayıt) { %> <option value="<%= kayıt.id %>">
+                        <%= kayıt.id %>-<%= kayıt.bolumAdi %></option><% }); %>
+                </select>
+                <input class="button is-primary" type="submit" value="Kayıt Ekle" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/4YilBolumSilindi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">4 Yıllık Bölüm Sil:</label>
+                <select class="input" name="dbolumSil" required>
+                    <% veri[0].forEach(function(kayıt) { %> <option value="<%= kayıt.id %>">
+                        <%= kayıt.id %>-<%= kayıt.bolumAdi %></option><% }); %>
+                </select>
+                <input class="button is-danger" type="submit" value="Kayıt Sil" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/4YilPuanlarSilindi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">4 Yıllık Üniversite Sil:</label>
+                <select class="input" name="dBolumSil" required>
+                    <% veri[1].forEach(function(kayıt) { %> <option value="<%= kayıt.universiteAdi %>">
+                        <%= kayıt.uniId %>-<%= kayıt.universiteAdi %> - TabanP:<%= kayıt.tabanPuan %> |
+                        TavanP:<%= kayıt.tavanPuan %></option><% }); %>
+                </select>
+                <input class="button is-danger" type="submit" value="Kayıt Sil" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/4YilBolumGuncellendi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">Bölüm Güncelle:</label>
+                <h1>Hangi Bölüm Seçilsin:</h1>
+                <select class="input" name="dG1" required>
+                    <% veri[0].forEach(function(kayıt) { %> <option value="<%= kayıt.id %>">
+                        <%= kayıt.id %>-<%= kayıt.bolumAdi %></option><% }); %>
+                </select>
+                <h1>Yeni Bölüm Adı:</h1>
+                <input class="input" type="text" name="dbAdi2" required
+                    placeholder="DGS Acil Yardım ve Afet Yönetimi Bölümü Taban Puanları">
+                    <h1>Puan Türü:</h1>
+                <input class="input" type="text" name="PtUR" required
+                    placeholder="SAY-SÖZ">
+                <input class="button is-info" type="submit" value="Güncelle" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/4YilPuanlarGuncellendi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">4 Yıllık Üniversite Güncelle:</label>
+                <br>
+                <label style="font-size:15px; font-family:sans-serif">Üniversite Adı:</label>
+                <input class="input" type="text" name="duniAdi" required placeholder="İstanbul Medipol Üniversitesi">
+                <label style="font-size:15px; font-family:sans-serif">Bölüm Adı:</label>
+                <input class="input" type="text" name="duniB" required placeholder="Bilgisayar Bilimleri">
+                <label style="font-size:15px; font-family:sans-serif">Öğr.Şekli:</label>
+                <input class="input" type="text" name="duniS" required placeholder="Mühendislik Fakültesi">
+                <label style="font-size:15px; font-family:sans-serif">Puan Türü:</label>
+                <input class="input" type="text" name="duniP" required placeholder="SAY-SÖZ">
+                <label style="font-size:15px; font-family:sans-serif">Kontenjan:</label>
+                <input class="input" type="text" name="duniK" required placeholder="0">
+                <label style="font-size:15px; font-family:sans-serif">Taban Puan:</label>
+                <input class="input" type="text" name="duniTaban" required placeholder="315.558">
+                <label style="font-size:15px; font-family:sans-serif">Başarı Sıralaması:</label>
+                <input class="input" type="text" name="duniSiralama" required placeholder="429.385">
+                <label>Hangi 4 Yıllık Üniversite Güncellensin?</label>
+                <select class="input" name="dbolumS">
+                    <% veri[1].forEach(function(kayıt) { %> <option value="<%= kayıt.universiteAdi %>">
+                        Üniversite Adi=><%= kayıt.universiteAdi %>/Bölümü=><%= kayıt.bolumAdi %></option><% }); %>
+                </select>
+                <input class="button is-info" type="submit" value="Güncelle" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,23 @@
+<%- include('./partials/header')%>
+<div class="container" style="width: auto; vertical-align:center; display:table;">
+    <div class="row">
+        <h1 style="font-size:25px; padding: 5px; text-align: center;"><% veri[1].forEach(function(kayıt) { %><%= kayıt.gBolumAdi %>(Alan Kodu: <%= kayıt.alanKodu %>)<% }); %></h1>
+
+        <table class="table is-bordered" style="width:auto; margin:5px;">
+            <thead>
+                <tr>
+                    <th style="width:500px; text-align: center;">Tercih Edilebilecek Programlar</th>
+                    <th>Lisans Alan Kodu</th>
+                </tr>
+            </thead>
+            <% veri[0].forEach(function(kayıt) { %>
+            <tr>
+                <td style="text-align: center;"><%= kayıt.tercihAdi %></td>
+                <td style="text-align: center;"><%= kayıt.lisansKodu %></td>
+
+            </tr>
+            <% }); %>
+        </table>
+
+    </div>
+</div>

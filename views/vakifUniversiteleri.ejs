@@ -1,0 +1,16 @@
+<%- include('./partials/header')%>
+<div class="container" style="width: auto; vertical-align:center; display:table;">
+    <div class="row">
+
+        <div>
+            <div class="baslik">
+                <h1 style="font-size: 25px; padding: 10px; text-align: center;">VAKIF ÜNİVERSİTELERİ</h1>
+            </div>
+            <% veri[0].forEach(function(kayıt) { %>
+            <div style="width: 400px; padding: 10px; margin:5px auto; border: 1px solid rgb(153, 177, 177); text-align: center;">
+                <%= kayıt.universiteAdi %></div>
+            <% }); %>
+        </div>
+
+    </div>
+</div>

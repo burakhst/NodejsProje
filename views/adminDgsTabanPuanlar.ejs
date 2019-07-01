@@ -1,0 +1,77 @@
+<%- include('adminPanel')%>
+<div style="height: 1500px;">
+    <div>
+        <iframe src="/dgsTabanPuanlari" style="width:100%; height:500px; "> </iframe>
+    </div>
+
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/dgsBolumEklendi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">Dgs Bölüm Ekle:</label>
+                <input class="input" type="text" name="bAdi" required
+                    placeholder="DGS Acil Yardım ve Afet Yönetimi Bölümü Taban Puanları">
+                <input class="button is-primary" type="submit" value="Kayıt Ekle" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/dgsPuanlarEklendi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">Dgs Üniversite Ekle:</label>
+                <br>
+                <label style="font-size:15px; font-family:sans-serif">Üniversite Adı:</label>
+                <input class="input" type="text" name="uniAdi" required placeholder="İstanbul Medipol Üniversitesi">
+                <label style="font-size:15px; font-family:sans-serif">Fakülte:</label>
+                <input class="input" type="text" name="uniF" required placeholder="Mühendislik Fakültesi">
+                <label style="font-size:15px; font-family:sans-serif">Bölüm Adı:</label>
+                <input class="input" type="text" name="uniB" required placeholder="Bilgisayar Bilimleri">
+                <label style="font-size:15px; font-family:sans-serif">Puan Türü:</label>
+                <input class="input" type="text" name="uniP" required placeholder="SAY-SÖZ">
+                <label style="font-size:15px; font-family:sans-serif">Kontenjan:</label>
+                <input class="input" type="text" name="uniK" required placeholder="0">
+                <label style="font-size:15px; font-family:sans-serif">Yer:</label>
+                <input class="input" type="text" name="uniY" required placeholder="0">
+                <label style="font-size:15px; font-family:sans-serif">Taban Puan:</label>
+                <input class="input" type="text" name="uniTaban" required placeholder="315.558">
+                <label style="font-size:15px; font-family:sans-serif">Tavan Puan:</label>
+                <input class="input" type="text" name="uniTavan" required placeholder="429.385">
+                <label>Hangi Bölüme Eklensin?</label>
+                <select class="input" name="bolumS">
+                    <% veri[0].forEach(function(kayıt) { %> <option value="<%= kayıt.id %>">
+                        <%= kayıt.id %>-<%= kayıt.bolumAdi %></option><% }); %>
+                </select>
+                <input class="button is-primary" type="submit" value="Kayıt Ekle" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/dgsBolumSilindi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">Dgs Bölüm Sil:</label>
+                <select class="input" name="bolumSil" required>
+                    <% veri[0].forEach(function(kayıt) { %> <option value="<%= kayıt.id %>">
+                        <%= kayıt.id %>-<%= kayıt.bolumAdi %></option><% }); %>
+                </select>
+                <input class="button is-danger" type="submit" value="Kayıt Sil" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/dgsPuanlarSilindi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">Dgs Üniversite Sil:</label>
+                <select class="input" name="bolumSil" required>
+                    <% veri[1].forEach(function(kayıt) { %> <option value="<%= kayıt.universiteAdi %>">
+                        <%= kayıt.uniId %>-<%= kayıt.universiteAdi %> - TabanP:<%= kayıt.tabanPuan %> |
+                        TavanP:<%= kayıt.tavanPuan %></option><% }); %>
+                </select>
+                <input class="button is-danger" type="submit" value="Kayıt Sil" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+</div>

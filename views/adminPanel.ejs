@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .panelItem {
+            display: block;
+            padding: 5px 5px 20px;
+            text-decoration: none;
+        }
+
+        .panelItem:hover {
+
+            background: rgba(216, 208, 208, 0.301);
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <div
+        style="width:100%;height: 70px;border:1px solid rgba(80, 95, 95, 0.521); vertical-align:center; display:table;">
+        <div>
+            <div>
+                <div style="margin:20px; ">
+                    <div class="dropdown is-hoverable">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                <span>Menü</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                            <div class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <a class="panelItem" href="/admin/Anasayfa">Anasayfa</a>
+                                    <a class="panelItem" href="/admin/tumyorumlar-hesapengelle">Tüm Yorumlar</a>
+                                    <a class="panelItem" href="/admin/kullaniciEngelle">Kullanıcı Engelle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown is-hoverable">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                <span>DGS</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                            <div class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <a class="panelItem" href="/admin/dgsKonulari">Dgs Konuları</a>
+                                    <a class="panelItem" href="/admin/ikiYilBolumler">Dgs Taban Puanları</a>
+                                    <a class="panelItem" href="/admin/dgsGecisBolumleri">Dgs Geçiş Bölümleri</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown is-hoverable">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                <span>TABAN PUANLARI</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                            <div class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <a class="panelItem" href="/admin/dortYilBolumler">4 Yıllık Taban Puanları</a>
+                                    <a class="panelItem" href="/admin/ikiYilBolumler">2 Yıllık Taban Puanları</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown is-hoverable">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                <span>ÜNİVERSİTELER</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                            <div class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <a class="panelItem" href="/admin/devletUniversiteleri">Devlet Üniversiteleri</a>
+                                    <a class="panelItem" href="/admin/vakifUniversiteleri">Vakıf Üniversiteleri</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/cikis" class="button is-warning">Çıkış</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+    <div>
+        <iframe src="/dgsKonulari" style="width:100%; height:500px; "> </iframe>
+    </div>
+-->
+</body>
+
+</html>

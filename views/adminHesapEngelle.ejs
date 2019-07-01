@@ -1,0 +1,42 @@
+<%- include('adminPanel')%>
+
+<div class="uY" style="margin: auto auto 150px; border:1px solid rgba(201, 188, 188, 0.582);">
+    <div class="baslik" style="margin:20px 20px auto; font-family: sans-serif; font-size: 25px;">
+        <b>Üye Yorumları</b>
+    </div>
+    <hr width="auto">
+    <% veri.forEach(function(kayıt) { %>
+    <div class="yorum" style="width: auto; margin: 10px; padding: 10px; border:1px solid rgba(182, 166, 166, 0.253);">
+        <div>
+            <form action="/admin/tumyorumlar-hesapengelle" method="POST">
+                <img src="/picture/pFoto.jpg"
+                    style="width: 50px;height: 40px; border-radius: 100%; float:left; margin:10px;">
+                    <input type="hidden" name="sy1" value="<%= kayıt.kullaniciAdi %>" readonly>
+                    <input type="hidden" name="sy2" value="<%= kayıt.kullaniciYorum %>" readonly>
+                <cite 
+                    style="font-size:20px; font-family:sans-serif; top: 8px; position: relative; color: black;"><%= kayıt.kullaniciAdi %></cite>
+
+                    <button class="button is-danger is-outlined" style="float: right;" type="submit">
+                        <span class="icon is-small">
+                      &times;
+                        </span>
+                    </button>
+            </form>
+        </div>
+        <div style="color: rgba(167, 157, 157, 0.692);">
+            <p><%= kayıt.tarih %></p>
+            <form action="/admin/hesapengelle" method="POST">
+                <input type="hidden" name="kimi" value="<%= kayıt.kullaniciAdi %>">
+                <button class="button is-danger is-outlined" style="float: right;" type="submit">
+                   BANLA
+                </button>
+            </form>
+        </div>
+        
+        <div style="font-size: 20px;">
+            <%= kayıt.kullaniciYorum %>
+        </div>
+    </div>
+    <% }); %>
+</div>
+</div>

@@ -1,0 +1,105 @@
+<%- include('./partials/header')%>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .group {
+        border: 0px solid;
+        list-style-type: none;
+        padding: 0px;
+        margin: 20px;
+    }
+
+    .item {
+        border: 1px solid #ddd;
+        margin-top: -1px;
+        /* Prevent double borders */
+        background-color: #f1ecec67;
+        padding: 12px;
+        text-align: center;
+    }
+    .item:hover{
+        background: rgb(218, 207, 207);
+    }
+    .y1{
+        color: black;
+        font-family: sans-serif;
+        margin:5px;
+    }
+    .y1:hover{
+        color: rgb(66, 59, 59);
+    }
+
+    .sol_blok {
+        width: 850px;
+        height: auto;
+        float: left;
+    }
+
+    .items {
+        width: 250px;
+        height: 250px;
+        margin: 15px;
+        border: 1px solid rgba(136, 160, 160, 0.479);
+        border-radius: 3px;
+        box-shadow: 10px 10px 15px grey;
+
+        float: left;
+    }
+
+    .text {
+        width: 240px;
+        height: 50px;
+        padding-left: 15px;
+        word-wrap: break-word;
+        overflow: hidden
+    }
+
+    .sag_blok {
+        width: 300px;
+        margin-left: 50px;
+        height: 500px;
+        float: left;
+    }
+
+    .yazi {
+        text-decoration: none;
+    }
+</style>
+<div class="container" style="width: auto;  margin-top: 5px; display: table; vertical-align: center; ">
+    <div class="row">
+        <div class="sol_blok">
+            <% veri.forEach(function(kayıt) { %>
+            <div class="items">
+                <div class="post-container">
+                    <div class="post">
+                        <a href="/anasayfa/<%= kayıt.Id %>" title="<%= kayıt.baslikAdi %>"><img
+                                style="width: 220px; height:150px; margin: 14px; border-radius: 3px;"
+                                src="/picture/kitapfoto.png"></a>
+                        <div class="text">
+                            <a href="/anasayfa/<%= kayıt.Id %>" class="yazi"
+                                title="<%= kayıt.baslikAdi %>"><%= kayıt.baslikAdi %></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+        <div class="sag_blok" >
+            <div class="list-group">
+                <div class="list">
+
+                        <ul class="group">
+                            <a href="/dgsKonulari" class="y1"><li class="item">Dgs Konuları</li></a>
+                            <a href="/dgsTabanPuanlari" class="y1"><li class="item">2019 Taban Puanları</li></a>
+                            <a href="/dgsGecisBolumleri" class="y1"> <li class="item">Dgs Geçiş Bölümleri</li></a>
+                            <a href="/4YilTabanPuan" class="y1"><li class="item">4 Yıllık Taban Punları</li></a>
+                            <a href="/dgsTabanPuanlari" class="y1"><li class="item">2 Yıllık Taban Puanları</li></a>
+                        </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>

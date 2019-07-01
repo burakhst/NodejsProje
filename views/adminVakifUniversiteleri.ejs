@@ -1,0 +1,34 @@
+<%- include('adminPanel')%>
+<div>
+        <div>
+                <iframe src="/vakifUniversiteleri" style="width:100%; height:500px; "> </iframe>
+        </div>
+        <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/vakifUniversitesiEklendi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">Üniversite Ekle:</label>
+                <h1>Üniversite Adı:</h1>
+                <input class="input" type="text" name="dUniEkle" required placeholder="İstanbul Medipol Üniversitesi">
+                
+                <input class="button is-primary" type="submit" value="Kayıt Ekle" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    <div class="container"
+    style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+    <div class="row">
+        <form action="/admin/vakifUniversitesiSilindi" method="POST">
+            <label style="font-size:20px; font-family:sans-serif">Üniversite Sil:</label>
+            <h1>Üniversite Adı:</h1>
+            <select class="input" name="dUniSil">
+                    <% veri[0].forEach(function(kayıt) { %> <option value="<%= kayıt.universiteAdi %>">
+                        <%= kayıt.universiteAdi %></option><% }); %>
+                </select>
+            <input class="button is-danger" type="submit" value="Kayıt Sil" style="margin:5px 0px;float:right;">
+        </form>
+    </div>
+</div>
+
+
+</div>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html {
+            background: #f6f6f65e;
+        }
+
+        .menu {
+            height: 40px;
+            background: #4444448a;
+            border: 1px solid #7272724a;
+        }
+
+        #menuItem {
+            right: 100px;
+            float: right;
+            margin: 10px;
+            position: relative;
+        }
+
+        #menuItem2 {
+            right: 100px;
+            float: right;
+            margin: 10px;
+            position: relative;
+        }
+
+        .Item {
+            position: relative;
+            display: inline;
+            padding-right: 30px;
+        }
+
+        .m1 {
+            color: #292929d9;
+            font-size: 17px;
+            font-family: 'BankFuturistic';
+            text-decoration: none;
+        }
+
+        .m1:hover {
+            color: #ffffffba;
+        }
+
+        .dd {
+            width: 100%;
+            display: inline-block;
+        }
+
+        #dropList {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #6f7c6e59;
+            border: 1px solid #a4a4a452;
+            text-align: center;
+        }
+
+        .dropdown {
+            display: inline-block;
+            padding-left: 2px;
+        }
+
+        li .h1,
+        .dropbtn {
+            width: 180px;
+            color: #484848;
+            display: inline-block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li .h1:hover,
+        .dropdown:hover .dropbtn {
+            background-color: grey;
+            color: white
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content .h1 {
+            width: auto;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content .h1:hover {
+            color: #5f5f5ff8;
+            background-color: #eeeeeedc;
+            border-bottom: solid 2px rgba(113, 103, 103, 0.517);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+
+</head>
+
+<body>
+    <div class="container is-fluid">
+        <div class="row">
+            <div id="header">
+                <div class="menu">
+                    <div id="menuItem">
+                        <form action="/ara" method="POST">
+                            <label class="search">
+                                <input style="width:300px; height:30px; top: -5px; right:100px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; float: left; position:relative;"
+                                  name="araBtn"  class="input" type="search" placeholder="Ara..">
+                                    <input class="button is-light" style="height: 30px; top: -5px; float: left; right:100px; padding-top:3px ;  border-top-left-radius: 0px; border-bottom-left-radius: 0px; position:relative;" type="submit" value="Ara">
+                            </label>
+                            <% if( profil ) { %><!-- profil: req.session.adi => kullanıcı giriş hafızada tutuyor-->
+                                <label class="Item"><a class="m1" href="/anasayfa">Anasayfa</a></label>
+                                <label class="Item"><a class="m1" href="/profil">Profil</a></label>
+                                <label class="Item"><a class="m1" href="/cikis">Çıkış</a></label>
+                            <% }else { %>
+                                <label class="Item"><a class="m1" href="/anasayfa">Anasayfa</a></label>
+                                <label class="Item"><a class="m1" href="/uyeGiris_Kayit">Üye Giriş</a></label>
+                                <label class="Item"><a class="m1" href="/uyeGiris_Kayit">Üye Kayıt</a></label>
+                                <% } %>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="ust_reklam" style="width: 1000px; height:100px;">
+                    <img style="width: 100%; height:100px; position: absolute;" src="/picture/logo.jpg" />
+                </div>
+                <div class="dd">
+                    <ul id="dropList">
+                        <li class="dropdown">
+                            <a class="dropbtn">Dgs</a>
+                            <div class="dropdown-content">
+                                <a class="h1" href="/dgsKonulari">Dgs Konuları</a>
+                                <a class="h1" href="/dgsTabanPuanlari">2019 Taban Puanları</a>
+                                <a class="h1" href="/dgsGecisBolumleri">Dgs Geçiş Bölümleri</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn">Taban Puanları</a>
+                            <div class="dropdown-content">
+                                <a class="h1" href="/4YilTabanPuan">4 Yıllık Taban Punları</a>
+                                <a class="h1" href="/dgsTabanPuanlari">2 Yıllık Taban Puanları</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn">Üniversiteler</a>
+                            <div class="dropdown-content">
+                                <a class="h1" href="/devletUniversiteleri">Devlet Üniversiteleri</a>
+                                <a class="h1" href="/vakifUniversiteleri">Vakıf Üniversiteleri</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn">Dropdown</a>
+                            <div class="dropdown-content">
+                                <a class="h1" href="#">Link 1</a>
+                                <a class="h1" href="#">Link 2</a>
+                                <a class="h1" href="#">Link 3</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn">Dropdown</a>
+                            <div class="dropdown-content">
+                                <a class="h1" href="#">Link 1</a>
+                                <a class="h1" href="#">Link 2</a>
+                                <a class="h1" href="#">Link 3</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn">Dropdown</a>
+                            <div class="dropdown-content">
+                                <a class="h1" href="#">Link 1</a>
+                                <a class="h1" href="#">Link 2</a>
+                                <a class="h1" href="#">Link 3</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="float:left; width:240px; height:560px; border:1px solid rgb(241, 241, 241);"><img
+                    style="width:240px; height:560px;" src="/picture/sol_reklam.jpg" /></div>
+            <div style="float: right; width:240px; height:560px; border:1px solid rgb(241, 241, 241);"><img
+                    style="width:240px; height:560px;" src="/picture/sag_reklam.jpg" /></div>
+        </div>
+    </div>
+</body>
+
+</html>

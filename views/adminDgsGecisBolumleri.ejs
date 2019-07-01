@@ -1,0 +1,70 @@
+<%- include('adminPanel')%>
+<div style="margin: 0px 0px 100px;">
+        <div>
+                <iframe src="/dgsGecisBolumleri" style="width:100%; height:500px; "> </iframe>
+            </div>
+            <div class="container"
+            style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+            <div class="row">
+                <form action="/admin/dgsGecisBolumEklendi" method="POST">
+                    <label style="font-size:20px; font-family:sans-serif">Dgs Geçiş Bölüm Ekle:</label>
+                    <h1>Bölüm adı:</h1>
+                    <input class="input" type="text" name="gbAdi" required>
+                    <h1>Alan kodu:</h1>
+                    <input class="input" type="text" name="gAKodu" required>
+
+                    <input class="button is-primary" type="submit" value="Kayıt Ekle" style="margin:5px 0px;float:right;">
+                </form>
+            </div>
+        </div>
+        <div class="container"
+        style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+        <div class="row">
+            <form action="/admin/dgsGecisBolumTercihEklendi" method="POST">
+                <label style="font-size:20px; font-family:sans-serif">Dgs Bolum Tercih Programı Ekle:</label>
+                <h1>Program Adı:</h1>
+                <input class="input" type="text" name="pAdi" required>
+                <h1>Lisans Kodu:</h1>
+                <input class="input" type="text" name="lKodu" required>
+                <h1>Hangi Bölüme Eklensin?</h1>
+                <select class="input" name="tercihEt">
+                        <% veri[0].forEach(function(kayıt) { %> <option value="<%= kayıt.Id %>">
+                                <%= kayıt.Id %>-<%= kayıt.gBolumAdi %>
+                        </option> <% }); %>
+
+                <input class="button is-primary" type="submit" value="Kayıt Ekle" style="margin:5px 0px;float:right;">
+            </form>
+        </div>
+    </div>
+    <div class="container"
+    style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+    <div class="row">
+        <form action="/admin/dgsGecisBolumSilindi" method="POST">
+            <label style="font-size:20px; font-family:sans-serif">Dgs Geçiş Bölüm Sil:</label>
+            <h1>Bölüm adı:</h1>
+            <select class="input" name="gBolumSil">
+                    <% veri[0].forEach(function(kayıt) { %> <option value="<%= kayıt.Id %>">
+                            <%= kayıt.Id %>-<%= kayıt.gBolumAdi %>
+                    </option> <% }); %>
+
+            <input class="button is-danger" type="submit" value="Kayıt Sil" style="margin:5px 0px;float:right;">
+        </form>
+    </div>
+</div>
+<div class="container"
+    style="width: 500px; border: 1px solid rgba(218, 203, 203, 0.555); padding: 20px; vertical-align:center;  display:table;">
+    <div class="row">
+        <form action="/admin/dgsGecisBolumTercihSilindi" method="POST">
+            <label style="font-size:20px; font-family:sans-serif">Dgs Bölüm Tercih Programı Sil:</label>
+            <h1>Tercih Programı adı:</h1>
+            <select class="input" name="tercihPSil">
+                    <% veri[1].forEach(function(kayıt) { %> <option value="<%= kayıt.tercihAdi %>">
+                            <%= kayıt.gecisId %>-<%= kayıt.tercihAdi %>
+                    </option> <% }); %>
+
+            <input class="button is-danger" type="submit" value="Kayıt Sil" style="margin:5px 0px;float:right;">
+        </form>
+    </div>
+</div>
+
+</div>

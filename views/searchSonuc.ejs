@@ -1,0 +1,125 @@
+<%- include('./partials/header')%>
+<style>
+    .aramaKutu {
+        width: 600px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid rgba(107, 122, 122, 0.247);
+        text-align: center;
+    }
+
+    .aramaKutu:hover {
+        width: 600px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid rgba(107, 122, 122, 0.247);
+        background: #d6d6d694;
+        text-align: center;
+    }
+
+    .yaziSekil {
+        font-size: 20px;
+        font-family: sans-serif;
+        color: rgba(67, 47, 184, 0.836);
+    }
+
+    .yaziSekil:hover {
+        font-size: 20px;
+        font-family: sans-serif;
+        color: rgba(43, 40, 40, 0.596);
+    }
+</style>
+<div class="container" style="width: 550px; display:table; vertical-align:center;">
+    <div class="row" style="width: 550px;">
+        <div class="baslik" style="margin: 5px;">
+            <h1 style="font-size:25px; font-family: sans-serif; text-align: center;    ">-Arama Sonuçları-</h1>
+        </div>
+        <% veri[0].forEach(function(kayıt) { %>
+        <a class="yaziSekil" href="/dgsGecisBolumleri/<%= kayıt.gecisId %>">
+            <div class="aramaKutu">
+                <div style="padding-left:5px;"><%= kayıt.tercihAdi %></div>
+            </div>
+        </a>
+        <% }); %>
+        <% veri[1].forEach(function(kayıt) { %>
+        <a class="yaziSekil" href="/dgsKonu/<%= kayıt.konuId %>">
+            <div class="aramaKutu">
+                <div style="padding-left:5px;"><%= kayıt.konuAdi %></div>
+            </div>
+        </a>
+        <% }); %>
+        <table class="table is-bordered" style="width:850px; margin:5px auto 50px; right: 115px; position: relative;">
+                <% veri[2].forEach(function(kayıt) { %>
+                <tbody>
+                    <tr>
+                        <td><a href="/4YilTabanPuan/<%= kayıt.uniId %>"> <%= kayıt.universiteAdi %></a></td>
+                        <td><%= kayıt.bolumAdi %></td>
+                        <td><%= kayıt.ogrSekli %></td>
+                        <td><%= kayıt.puanTur %></td>
+                        <td><%= kayıt.kontenjan %></td>
+                        <td><%= kayıt.tabanPuan %></td>
+                        <td><%= kayıt.basariSiralamasi %></td>
+    
+                    </tr>
+                </tbody><% }); %>
+            </table>
+        <% veri[3].forEach(function(kayıt) { %>
+        <a class="yaziSekil" href="/dgsTabanPuanlari/<%= kayıt.id %>">
+            <div class="aramaKutu">
+                <div style="padding-left:5px;"><%= kayıt.bolumAdi %></div>
+            </div>
+        </a>
+        <% }); %>
+        <% veri[4].forEach(function(kayıt) { %>
+        <a class="yaziSekil" href="/anasayfa/<%= kayıt.Id %>">
+            <div class="aramaKutu">
+                <div style="padding-left:5px;"><%= kayıt.baslikAdi %></div>
+            </div>
+        </a>
+        <% }); %>
+        <% veri[5].forEach(function(kayıt) { %>
+        <a class="yaziSekil" href="/devletUniversiteleri">
+            <div class="aramaKutu">
+                <div style="padding-left:5px;"><%= kayıt.universiteAdi %></div>
+            </div>
+        </a>
+        <% }); %>
+        <% veri[6].forEach(function(kayıt) { %>
+        <a class="yaziSekil" href="/vakifUniversiteleri">
+            <div class="aramaKutu">
+                <div style="padding-left:5px;"><%= kayıt.universiteAdi %></div>
+            </div>
+        </a>
+        <% }); %>
+        <table class="table is-bordered" style="width:850px; margin:5px auto 50px; right: 115px; position: relative;">
+            <% veri[7].forEach(function(kayıt) { %>
+            <tbody>
+                <tr>
+                    <td><a href="/dgsTabanPuanlari/<%= kayıt.uniId %>"> <%= kayıt.universiteAdi %></a></td>
+                    <td><%= kayıt.fakulte %></td>
+                    <td><%= kayıt.bolumAdi %></td>
+                    <td><%= kayıt.puanTur %></td>
+                    <td><%= kayıt.kontenjan %></td>
+                    <td><%= kayıt.yer %></td>
+                    <td><%= kayıt.tabanPuan %></td>
+                    <td><%= kayıt.tavanPuan %></td>
+
+                </tr>
+            </tbody><% }); %>
+        </table>
+        <% veri[8].forEach(function(kayıt) { %>
+        <a class="yaziSekil" href="/4YilTabanPuan/<%= kayıt.id %>">
+            <div class="aramaKutu">
+                <div style="padding-left:5px;"><%= kayıt.bolumAdi %></div>
+            </div>
+        </a>
+        <% }); %>
+        <% veri[9].forEach(function(kayıt) { %>
+        <a class="yaziSekil" href="/dgsKonu/<%= kayıt.Id %>">
+            <div class="aramaKutu">
+                <div style="padding-left:5px;"><%= kayıt.dersAdi %></div>
+            </div>
+        </a>
+        <% }); %>
+    </div>
+</div>

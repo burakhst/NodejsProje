@@ -1,0 +1,41 @@
+<%- include('./partials/header')%>
+<style>
+p {
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 5px;
+}
+td {
+    width: 500px;
+}
+</style>
+<div class="container" style="width:auto; display: table; vertical-align:center;">
+    <div class="row">
+        <div>
+            <table class="table is-bordered" style="width:auto; margin:10px;">
+                <% veri.forEach(function(kayıt) { %>
+                <tr>
+                    <th><p>Adı :</p></th>
+                    <td><p><%= kayıt.adi %></p></td>
+                </tr>
+                <tr>
+                    <th><p>Soyadı :</p></th>
+                    <td><p><%= kayıt.soyadi %></p></td>
+                </tr>
+                <tr>
+                    <th><p>Kullanıcı Adı :</p></th>
+                    <td><p><%= kayıt.kullaniciAdi %></p></td>
+                </tr>
+                <tr>
+                    <th><p>E-posta :</p></th>
+                    <td><p><%= kayıt.mail %></p></td>
+                </tr>
+                <% }); %>
+            </table>
+            <div style="float:right; margin-right:10px;">
+               <a href="/sifremiDegistir">Şifremi Değiştir</a>
+            </div>
+
+        </div>
+    </div>
+</div>
